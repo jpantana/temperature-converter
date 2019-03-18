@@ -4,15 +4,11 @@ const printToDom = (divId, textToPrint) => {
 };
 
 
-const domStringBuilder = (determineConverter, celOrFah, toCelsius, toFahrenheit) => {
+const domStringBuilder = (finalTemp, unit) => {
     let domString = '';
         domString += `<div class="printedDomCard">`;
-        domString += `<h2>${determineConverter}</h2>`;
-        domString += `<h2>${celOrFah}</h2>`;
-        // could do an if statement here to say converted to then the opp. of what's right above this line
-        domString += `<h2>Converted to</h2>`;
+        domString += `<h2>${finalTemp}° ${unit}</h2>`;
         domString += `</div>`;
-    // call printToDom function
     printToDom('tempOutput', domString);
 };
 
@@ -22,50 +18,47 @@ const domStringBuilder = (determineConverter, celOrFah, toCelsius, toFahrenheit)
 
 // This function should determine which conversion should
 // happen based on which radio button is selected.
-
-
-// This function prints value and checked info to console and calls domString function
 const determineConverter = (e) => {
-    var inputValue = document.getElementById('tempInput').value;
-    console.log(inputValue);
     console.log('event', e);
-        const celOrFah = () => {
-            if (document.getElementById('c').checked === true) {
-                console.log('Celcius');
-                toCelsius();
-                return 'Celcius';
-            } else if (document.getElementById('f').checked === true) {
-                console.log('Fahrenheit');
-                toFahrenheit();
-                return 'Fahrenheit';
-            }
-        };
-        celOrFah();
-        domStringBuilder(inputValue, celOrFah());
+    if (document.getElementById('c').checked === true) {
+        console.log('Converted to Celcius');
+        toCelsius();
+    } else if (document.getElementById('f').checked === true) {
+        console.log('Converted to Fahrenheit');
+        toFahrenheit();
+    }
+};  
 
-    };  
+const toCelsius =  () => {
+    let temp = document.getElementById('tempInput').value;
+    console.log(Math.round((temp - 32) * 5/9));
+    let finalTemp = (Math.round((temp - 32) * 5/9));
+    domStringBuilder(finalTemp, 'Celcius');
+};
 
+const toFahrenheit =  () => {
+    let temp = document.getElementById('tempInput').value;
+    console.log(Math.round(((temp * 9) / 5) + 32));
+    let finalTemp = (Math.round(((temp * 9) / 5) + 32));
+    domStringBuilder(finalTemp, 'Fahrenheit');
+};
 
-
-    const toCelsius =  () => {
-        const fTemp = document.getElementById('tempInput').value;
-        console.log(Math.round((fTemp - 32) * 5/9));
-        return (Math.round((fTemp - 32) * 5/9));
-    };
-    
-    const toFahrenheit =  () => {
-        const cTemp = document.getElementById('tempInput').value;
-        console.log(Math.round(((cTemp * 9) / 5) + 32));
-        return (Math.round(((cTemp * 9) / 5) + 32));
-    };
+// const clearIt = (e) => {
+//     document.getElementById('tempInput').reset;
+// };
 
 // Assign a function to be executed when the button is clicked
 const buttonEvents = () => {
-    document.getElementById('convertBtn', 'c' || 'f').addEventListener('click', determineConverter);
+    document.getElementById('convertBtn').addEventListener('click', determineConverter);
 };
 
+
+// const clearButtonEvent = () => {
+//     document.getElementById('clearBtn').addEventListener('click', clearIt);
+// };
+
 const init = () => {
-    
+
 };
 init();
 

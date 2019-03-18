@@ -7,8 +7,8 @@
     <title>Temperature Converter</title>
     <link rel="stylesheet" href="./main.css">
 </head>
-<body></body>
-    <div id="">
+<body>
+    <div class="container">
         <input id="tempInput" type="text" placeholder="Temperature">
         
         <div id="radioBtns">
@@ -17,16 +17,23 @@
             <input id="f" name="btn" class="radioBtn" type="radio" value ="F°">
                 <label for="F°">F°</label>
         </div>
+    
+
+        <div id="convertBtn">
+            <input class="btn" onclick="buttonEvents()" type="submit" value="Convert">
+            <!-- <button onclick="buttonEvents()">Convert</button> -->
+        </div>
+
+
+        <!-- <div id="clearBtn">
+            <input class="btn" type="reset" onclick="document.getElementById('tempInput').value = ''" value="Clear">
+        </div> -->
+
+        <div id="tempOutput">
+        </div>
     </div>
 
-    <div id="convertBtn">
-        <button onclick="buttonEvents()">Convert</button>
-    </div>
-
-    <div id="tempOutput">
-    </div>
-
-    <div id="convertedTemp"></div>
+        
     
     <script src="main.js"></script>
 </body>
