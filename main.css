@@ -7,12 +7,45 @@ body {
     background-color: white;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+#tempInput {
+    display: flex;
+    margin: auto;
+}
+
 #radioBtns {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
+.btn {
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 10px;
+}
+
+#convertBtn {
+    text-align: center; 
+}
+
+h2 {
+    text-align: center;
+    display: block;
+}
 .printedDomCard {
+    display: block;
+    width: 300px;
+    margin: auto;
+    float: center;
     border: 1px solid black;
     top: 300px;
 }
