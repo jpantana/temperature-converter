@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 10px;
+}
+
+body {
+    background-color: white;
+}
+
+#radioBtns {
+    display: flex;
+    flex-direction: row;
+}
+
+.printedDomCard {
+    border: 1px solid black;
+    top: 300px;
+}
