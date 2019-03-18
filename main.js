@@ -43,13 +43,15 @@ const toFahrenheit =  () => {
     domStringBuilder(finalTemp, 'Fahrenheit');
 };
 
-// const clearIt = (e) => {
-//     document.getElementById('tempInput').reset;
-// };
+const clearIt = (e) => {
+    // document.getElementById('tempInput').value = '';
+    document.location.reload();
+};
 
 // Assign a function to be executed when the button is clicked
 const buttonEvents = () => {
     document.getElementById('convertBtn').addEventListener('click', determineConverter);
+    document.getElementById('clearBtn').addEventListener('click', clearIt);
 };
 
 
@@ -58,7 +60,7 @@ const buttonEvents = () => {
 // };
 
 const init = () => {
-
+  buttonEvents();
 };
 init();
 
