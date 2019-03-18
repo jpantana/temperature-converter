@@ -6,11 +6,11 @@ const printToDom = (divId, textToPrint) => {
 
 const domStringBuilder = () => {
     let domString = '';
-    // divId.forEach(() => {
-    //     domString += `<div class="">`;
-    //     domString += `<h2></h2>`;
-    //     domString += `<h2></h2>`;
-    // });
+    divId.forEach(() => {
+        domString += `<div class="">`;
+        domString += `<h2></h2>`;
+        domString += `<h2></h2>`;
+    });
     printToDom('tempOutput', domString);
 };
 
@@ -34,11 +34,9 @@ const button = document.getElementById("converter");
 // happen based on which radio button is selected.
 const determineConverter = (e) => {
     // const buttonId = e.target.id;
-    const selectedTemps = [];
+    // const selectedTemps = [];
     const inputValue = document.getElementById('tempInput').value;
     console.log(inputValue);
-    
-    
     // console.log("event", e);
 };
 
