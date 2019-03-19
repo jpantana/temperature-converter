@@ -12,12 +12,7 @@ const domStringBuilder = (finalTemp, unit) => {
     printToDom('tempOutput', domString);
 };
 
-// Get a reference to the button element in the DOM
-// const button = document.getElementById("convertBtn");
 
-
-// This function should determine which conversion should
-// happen based on which radio button is selected.
 const determineConverter = (e) => {
     console.log('event', e);
     if (document.getElementById('c').checked === true) {
@@ -48,30 +43,17 @@ const clearIt = (e) => {
     document.location.reload();
 };
 
-// Assign a function to be executed when the button is clicked
 const buttonEvents = () => {
     document.getElementById('convertBtn').addEventListener('click', determineConverter);
     document.getElementById('clearBtn').addEventListener('click', clearIt);
 };
 
-
-// Get the input field
-const input = document.getElementById("convertBtn");
-
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener("keyup", function(event) {
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Cancel the default action, if needed
+window.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
     event.preventDefault();
-    // Trigger the button element with a click
     document.getElementById("convertBtn").click();
-  }
+}
 });
-
-
-
-
 
 
 const init = () => {
