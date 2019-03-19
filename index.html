@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="container">
+        <!-- <p >Enter the temperature and select which unit you want it to be converted to:</p> -->
+        <!-- <p id="instructionP" for="Temperature">Temperature:</label> -->
         <input id="tempInput" type="text" placeholder="Temperature">
+        
         
         <div id="radioBtns">
             <input id="c" name="btn" class="radioBtn" type="radio" value="C°">
@@ -19,14 +22,15 @@
         </div>
     
 
-        <div >
+        <div id="convertDiv">
             <input class="btn" id="convertBtn" type="submit" value="Convert">
-        </div>
-
-
-        <div>
             <input id="clearBtn" class="btn" type="reset" value="Clear">
         </div>
+
+
+        <!-- <div id="clearDiv">
+            <input id="clearBtn" class="btn" type="reset" value="Clear">
+        </div> -->
         <div id="tempOutput">
         </div>
     </div>
