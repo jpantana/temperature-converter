@@ -7,8 +7,14 @@ const printToDom = (divId, textToPrint) => {
 const domStringBuilder = (finalTemp, unit) => {
     let domString = '';
         domString += `<div class="printedDomCard">`;
-        domString += `<h2>${finalTemp}° ${unit}</h2>`;
-        domString += `</div>`;
+        if (unit === 'Fahrenheit') {
+            domString += `<h2 class="blue">${finalTemp}° ${unit}</h2>`;
+        } else if (unit === 'Celcius') {
+            domString += `<h2 class="red">${finalTemp}° ${unit}</h2>`;
+        } else {
+            domString += `<h2 class="green">${finalTemp}° ${unit}</h2>`;
+        }
+       domString += `</div>`;
     printToDom('tempOutput', domString);
 };
 
@@ -55,9 +61,16 @@ if (event.keyCode === 13) {
 }
 });
 
+// const changeColor = () => {
+//     if (document.addEventListener('click', determineConverter) === true) {
+        
+//     }
+// };
+
 
 const init = () => {
   buttonEvents();
+//   changeColor();
 };
 init();
 

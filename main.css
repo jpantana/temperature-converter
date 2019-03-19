@@ -7,6 +7,18 @@ body {
     background-color: white;
 }
 
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
 .container {
     display: flex;
     flex-direction: column;
