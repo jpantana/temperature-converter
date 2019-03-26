@@ -10,7 +10,13 @@ const tempLevel = (finalTemp, unit) => {
     } else if (unit === 'Fahrenheit' && finalTemp > 50 && finalTemp <= 75) {
         tempColorClass = "green";
     } else if (unit === 'Fahrenheit' && finalTemp > 76) {
+        tempColorClass = "red";
+    } else if (unit === 'Celcius' && finalTemp < 9) {
+        tempColorClass = "blue";
+    } else if (unit === 'Celcius' && finalTemp > 10 && finalTemp <= 24) {
         tempColorClass = "green";
+    } else if (unit === 'Celcius' && finalTemp > 24) {
+        tempColorClass = "red";
     }
     domStringBuilder(finalTemp, unit);
 };
