@@ -2,22 +2,32 @@ const printToDom = (divId, textToPrint) => {
     const selectedId = document.getElementById(divId);
     selectedId.innerHTML = textToPrint;
 };
-
+let tempColorClass = '';
+const tempLevel = (finalTemp, unit) => {
+    // let tempColorClass = '';
+    if (unit === 'Fahrenheit' && finalTemp < 49) {
+        tempColorClass = "blue";
+    } else if (unit === 'Fahrenheit' && finalTemp > 50 && finalTemp <= 75) {
+        tempColorClass = "green";
+    } else if (unit === 'Fahrenheit' && finalTemp > 76) {
+        tempColorClass = "green";
+    }
+    domStringBuilder(finalTemp, unit);
+};
 
 const domStringBuilder = (finalTemp, unit) => {
     let domString = '';
         domString += `<div class="printedDomCard">`;
         if (unit === 'Fahrenheit') {
-            domString += `<h2 class="blue">${finalTemp}° ${unit}</h2>`;
+            domString += `<h2 class="${tempColorClass}">${finalTemp}° ${unit}</h2>`;
         } else if (unit === 'Celcius') {
-            domString += `<h2 class="red">${finalTemp}° ${unit}</h2>`;
+            domString += `<h2 class="${tempColorClass}">${finalTemp}° ${unit}</h2>`;
         } else {
-            domString += `<h2 class="green">${finalTemp}° ${unit}</h2>`;
+            domString += `<h2 class="${tempColorClass}">${finalTemp}° ${unit}</h2>`;
         }
        domString += `</div>`;
     printToDom('tempOutput', domString);
 };
-
 
 const determineConverter = (e) => {
     console.log('event', e);
@@ -34,14 +44,14 @@ const toCelsius =  () => {
     let temp = document.getElementById('tempInput').value;
     console.log(Math.round((temp - 32) * 5/9));
     let finalTemp = (Math.round((temp - 32) * 5/9));
-    domStringBuilder(finalTemp, 'Celcius');
+    tempLevel(finalTemp, 'Celcius');
 };
 
 const toFahrenheit =  () => {
     let temp = document.getElementById('tempInput').value;
     console.log(Math.round(((temp * 9) / 5) + 32));
     let finalTemp = (Math.round(((temp * 9) / 5) + 32));
-    domStringBuilder(finalTemp, 'Fahrenheit');
+    tempLevel(finalTemp, 'Fahrenheit');
 };
 
 const clearIt = (e) => {
@@ -70,7 +80,6 @@ if (event.keyCode === 13) {
 
 const init = () => {
   buttonEvents();
-//   changeColor();
 };
 init();
 
